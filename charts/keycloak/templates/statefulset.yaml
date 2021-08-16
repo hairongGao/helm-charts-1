@@ -21,9 +21,6 @@ spec:
   replicas: {{ .Values.replicas }}
   {{- end }}
   serviceName: {{ include "keycloak.fullname" . }}-headless
-  podManagementPolicy: {{ .Values.podManagementPolicy }}
-  updateStrategy:
-    type: RollingUpdate
   template:
     metadata:
       annotations:
