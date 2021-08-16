@@ -89,15 +89,15 @@ spec:
             - name: DB_VENDOR
               value: mysql
             - name: DB_ADDR
-              value: kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com
+              value: "kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com"
             - name: DB_PORT
-              value: 3306
+              value: "3306"
             - name: DB_DATABASE
-              value: keycloak
+              value: "keycloak"
             - name: DB_USER
-              value: admin
+              value: "admin"
             - name: DB_PASSWORD
-              value: bugmenot
+              value: "bugmenot"
             {{- if .Values.postgresql.enabled }}
             - name: DB_VENDOR
               value: postgres
