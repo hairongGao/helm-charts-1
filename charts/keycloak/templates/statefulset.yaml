@@ -134,7 +134,6 @@ spec:
       {{- end }}
       enableServiceLinks: {{ .Values.enableServiceLinks }}
       restartPolicy: {{ .Values.restartPolicy }}
-      {{- with .Values.nodeSelector }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       volumes:
         {{- with .Values.startupScripts }}
