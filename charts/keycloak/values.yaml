@@ -361,15 +361,17 @@ pgchecker:
       cpu: "20m"
       memory: "32Mi"
 
-postgresql:
+mysql:
   # If `true`, the Postgresql dependency is enabled
   enabled: true
+  mysqlHostname: kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com
+  port: 3306
   # PostgreSQL User to create
-  postgresqlUsername: keycloak
+  mysqlUsername: admin
   # PostgreSQL Password for the new user
-  postgresqlPassword: keycloak
+  mysqlPassword: bugmenot
   # PostgreSQL Database to create
-  postgresqlDatabase: keycloak
+  mysqlDatabase: keycloak
   # PostgreSQL network policy configuration
   networkPolicy:
     enabled: false
