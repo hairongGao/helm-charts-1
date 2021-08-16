@@ -82,22 +82,25 @@ spec:
           {{- tpl . $ | nindent 12 }}
           {{- end }}
           env:
-            {{- if .Values.postgresql.enabled }}
+            - name: KEYCLOAK_USER
+              value: "admin"
+            - name: KEYCLOAK_PASSWORD
+              value: "admin"
+            - name: PROXY_ADDRESS_FORWARDING
+              value: "true"          
+            {{- if .Values.mysql.enabled }}
             - name: DB_VENDOR
-              value: postgres
+              value: mysql
             - name: DB_ADDR
-              value: {{ include "keycloak.postgresql.fullname" . }}
+              value: {{ .Values.mysql.mysqlHostname | quote }}
             - name: DB_PORT
-              value: {{ .Values.postgresql.service.port | quote }}
+              value: {{ .Values.mysql.port | quote }}
             - name: DB_DATABASE
-              value: {{ .Values.postgresql.postgresqlDatabase | quote }}
+              value: {{ .Values.mysql.mysqlDatabase | quote }}
             - name: DB_USER
-              value: {{ .Values.postgresql.postgresqlUsername | quote }}
+              value: {{ .Values.mysql.mysqlUsername | quote }}
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "keycloak.postgresql.fullname" . }}
-                  key: postgresql-password
+              value: {{ .Values.mysql.mysqlPassword | quote }}
             {{- end }}
             {{- with .Values.extraEnv }}
             {{- tpl . $ | nindent 12 }}
