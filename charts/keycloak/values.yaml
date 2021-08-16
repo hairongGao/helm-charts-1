@@ -364,7 +364,7 @@ pgchecker:
 mysql:
   # If `true`, the Postgresql dependency is enabled
   enabled: true
-  mysqlHostname: kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com
+  mysqlHostname: "kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com"
   port: 3306
   # PostgreSQL User to create
   mysqlUsername: admin
