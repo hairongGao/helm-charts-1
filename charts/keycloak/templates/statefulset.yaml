@@ -48,10 +48,6 @@ spec:
             {{- toYaml .Values.command | nindent 12 }}
           args:
             {{- toYaml .Values.args | nindent 12 }}
-          {{- with .Values.lifecycleHooks }}
-          lifecycle:
-          {{- tpl . $ | nindent 12 }}
-          {{- end }}
           env:
             - name: KEYCLOAK_USER
               value: "admin"
