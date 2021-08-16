@@ -80,6 +80,24 @@ spec:
           {{- tpl . $ | nindent 12 }}
           {{- end }}
           env:
+            - name: KEYCLOAK_USER
+              value: "admin"
+            - name: KEYCLOAK_PASSWORD
+              value: "admin"
+            - name: PROXY_ADDRESS_FORWARDING
+              value: "true"
+            - name: DB_VENDOR
+              value: mysql
+            - name: DB_ADDR
+              value: kc.ciskdu2mb66m.us-east-1.rds.amazonaws.com
+            - name: DB_PORT
+              value: 3306
+            - name: DB_DATABASE
+              value: keycloak
+            - name: DB_USER
+              value: admin
+            - name: DB_PASSWORD
+              value: bugmenot
             {{- if .Values.postgresql.enabled }}
             - name: DB_VENDOR
               value: postgres
